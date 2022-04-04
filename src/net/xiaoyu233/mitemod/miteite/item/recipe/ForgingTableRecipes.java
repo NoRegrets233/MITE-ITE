@@ -4,10 +4,14 @@ import com.google.common.base.Objects;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 import net.minecraft.*;
+import net.xiaoyu233.mitemod.miteite.item.ItemEnhanceStone;
 import net.xiaoyu233.mitemod.miteite.item.Items;
 import net.xiaoyu233.mitemod.miteite.item.Materials;
+import org.spongepowered.asm.mixin.Overwrite;
 
 import java.util.function.Consumer;
+
+import static net.xiaoyu233.mitemod.miteite.item.Items.UNIVERSAL_ENHANCE_STONE;
 
 public class ForgingTableRecipes {
     private static final BiMap<RecipeKey,ForgingRecipe> RECIPES = HashBiMap.create();
@@ -63,6 +67,7 @@ public class ForgingTableRecipes {
 
     }
 
+
     public static void registerAll(){
         //Iron Ancient metal Mithril
         registerZeroToTwoRecipes(Material.iron,ForgingTableLevel.IRON);
@@ -73,7 +78,7 @@ public class ForgingTableRecipes {
             registerZeroToThreeRecipes(Materials.vibranium,ForgingTableLevel.VIBRANIUM);
             registerThreeToSix(Materials.vibranium,ForgingTableLevel.VIBRANIUM);
             ForgingRecipe.Builder.of(Materials.vibranium,7,ForgingTableLevel.VIBRANIUM).
-                    setChanceOfFailure(Items.ADAMANTIUM_ENHANCE_STONE.getFailChance()).
+                    setChanceOfFailure(UNIVERSAL_ENHANCE_STONE.getFailChance()).
                     setAxeDurabilityCost(6144).
                     setHammerDurabilityCost(8192).
                     setTimeReq(90 * 20).
@@ -83,10 +88,11 @@ public class ForgingTableRecipes {
                     addMaterials(new ItemStack(Items.ghastTear,1),
                             new ItemStack(Items.ingotAdamantium,1),
                             new ItemStack(Item.ingotMithril,2),
+                            new ItemStack(UNIVERSAL_ENHANCE_STONE,1),
                             new ItemStack(Items.ADAMANTIUM_ENHANCE_STONE,1)).
                     build(regiseterer);
             ForgingRecipe.Builder.of(Materials.vibranium,8,ForgingTableLevel.VIBRANIUM).
-                    setChanceOfFailure(Items.ADAMANTIUM_ENHANCE_STONE.getFailChance()).
+                    setChanceOfFailure(UNIVERSAL_ENHANCE_STONE.getFailChance()).
                     setAxeDurabilityCost(8192).
                     setHammerDurabilityCost(10240).
                     setTimeReq(100 * 20).
@@ -96,10 +102,12 @@ public class ForgingTableRecipes {
                     addMaterials(new ItemStack(Items.ghastTear,2),
                             new ItemStack(Items.ingotAdamantium,1),
                             new ItemStack(Item.ingotMithril,2),
+                            //ti'gaodone
+                            new ItemStack(UNIVERSAL_ENHANCE_STONE,1),
                             new ItemStack(Items.ADAMANTIUM_ENHANCE_STONE,1)).
                     build(regiseterer);
             ForgingRecipe.Builder.of(Materials.vibranium,9,ForgingTableLevel.VIBRANIUM).
-                    setChanceOfFailure(Items.ADAMANTIUM_ENHANCE_STONE.getFailChance()).
+                    setChanceOfFailure(UNIVERSAL_ENHANCE_STONE.getFailChance()).
                     setAxeDurabilityCost(8192).
                     setHammerDurabilityCost(10240).
                     setTimeReq(110 * 20).
@@ -109,6 +117,8 @@ public class ForgingTableRecipes {
                     addMaterials(new ItemStack(Items.ghastTear,2),
                             new ItemStack(Items.ingotAdamantium,2),
                             new ItemStack(Item.ingotMithril,2),
+                            //done
+                            new ItemStack(UNIVERSAL_ENHANCE_STONE,1),
                             new ItemStack(Items.ADAMANTIUM_ENHANCE_STONE,1)).
                     build(regiseterer);
         }

@@ -52,7 +52,6 @@ public class MITEITEMod extends AbstractMod {
     public int modVerNum() {
         return Constant.MITE_ITE_VER_NUM;
     }
-
     @Override
     public String modVerStr() {
         return Constant.MITE_ITE_VERSION;

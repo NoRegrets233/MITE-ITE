@@ -1,6 +1,7 @@
 package net.xiaoyu233.mitemod.miteite.trans.item.recipe;
 
 import net.minecraft.*;
+import net.xiaoyu233.mitemod.miteite.item.Items;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
@@ -60,6 +61,30 @@ public abstract class RecipesArmorTrans {
                 "A A",
                 'A',Item.ingotAdamantium,
                 'B',Item.bootsAncientMetal);
+        //NEW
+        ((CraftingManagerInvoker)this.crafting_manager).addRecipeP(new ItemStack(Item.helmetAdamantium),true,
+                "AHA",
+                "A A",
+                'A',Items.FORTIFIED_ADAMANTIUM_INGOT,
+                'H',Item.helmetMithril).func_92100_c();
+        ((CraftingManagerInvoker)this.crafting_manager).addRecipeP(new ItemStack(Item.plateAdamantium),true,
+                "A A",
+                "APA",
+                "AAA",
+                'A',Items.FORTIFIED_ADAMANTIUM_INGOT,
+                'P',Item.plateMithril).func_92100_c();
+        ((CraftingManagerInvoker)this.crafting_manager).addRecipeP(new ItemStack(Item.legsAdamantium),true,
+                "ALA",
+                "A A",
+                "A A",
+                'A',Items.FORTIFIED_ADAMANTIUM_INGOT,
+                'L',Item.legsMithril).func_92100_c();
+        ((CraftingManagerInvoker)this.crafting_manager).addRecipeP(new ItemStack(Item.bootsAdamantium),true,
+                "B A",
+                "A A",
+                'A',Items.FORTIFIED_ADAMANTIUM_INGOT,
+                'B',Item.bootsMithril).func_92100_c();
+
 
 
         //Iron -> Mithril

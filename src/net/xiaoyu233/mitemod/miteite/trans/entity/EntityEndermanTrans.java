@@ -1,6 +1,7 @@
 package net.xiaoyu233.mitemod.miteite.trans.entity;
 
 import net.minecraft.*;
+import net.xiaoyu233.mitemod.miteite.util.Configs;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 
@@ -21,11 +22,22 @@ public class EntityEndermanTrans extends EntityMonster {
 
    public EntityDamageResult attackEntityAsMob(Entity target) {
       this.worldObj.setEntityState(this, EnumEntityState.golem_throw);
-      EntityDamageResult result = target.attackEntityFrom(new Damage(DamageSource.causeMobDamage(this), (float)this.getEntityAttributeValue(GenericAttributes.attackDamage)));
+      EntityDamageResult result = target.attackEntityFrom(new Damage(DamageSource.causeMobDamage(this), (float) this.getEntityAttributeValue(GenericAttributes.attackDamage)));
       if (result != null && result.entityWasKnockedBack()) {
          target.motionY += 0.6D;
       }
 
       return result;
    }
+
+  /* @Override
+   public boolean getCanSpawnHere(boolean perform_light_check) {
+      boolean chanceSpawn = false;
+      if (this.worldObj.isTheEnd()) {
+         chanceSpawn = this.rand.nextInt(100) < Configs.GameMechanics.MobSpawning.END_MAN_SPAWN_CHANCE_END.get();
+      }
+      return chanceSpawn;
+   }
+
+   */
 }

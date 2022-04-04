@@ -30,6 +30,7 @@ public class Items extends Item{
     public static final ItemEnhanceStone MITHRIL_ENHANCE_STONE = (ItemEnhanceStone) new ItemEnhanceStone(ItemEnhanceStone.Types.mithril).setCraftingDifficultyAsComponent(ItemRock.getCraftingDifficultyAsComponent(Material.mithril) * 2f);
     public static final ItemEnhanceStone ADAMANTIUM_ENHANCE_STONE = (ItemEnhanceStone) new ItemEnhanceStone(ItemEnhanceStone.Types.adamantium).setCraftingDifficultyAsComponent(ItemRock.getCraftingDifficultyAsComponent(Material.diamond) * 2f);
     public static final ItemEnhanceStone UNIVERSAL_ENHANCE_STONE = (ItemEnhanceStone) new ItemEnhanceStone(ItemEnhanceStone.Types.universal).setCraftingDifficultyAsComponent(ItemRock.getCraftingDifficultyAsComponent(Material.ender_pearl) * 2f);
+    public static final Item FORTIFIED_ADAMANTIUM_INGOT = new ItemFortifiedAdamantium(Constant.getNextItemID());
 
     private static Item register(String resourceLocation, Item item, CreativeModeTab tab) {
         item.setResourceLocation(item.getResourceLocationPrefix() + resourceLocation);
@@ -61,6 +62,7 @@ public class Items extends Item{
         register("vibranium_battle_axe", VIBRANIUM_BATTLE_AXE);
         register("diamond_chunk", DIAMOND_CHUNK, CreativeModeTab.tabMaterials);
         register("blaze_coal_powder", BLAZE_COAL_POWDER, CreativeModeTab.tabMaterials);
+        register("fortified_adamantium", FORTIFIED_ADAMANTIUM_INGOT, CreativeModeTab.tabMaterials);
         register("bows/vibranium/", VIBRANIUM_BOW).setUnlocalizedName("vibranium_bow");
         register("enhance_stone/iron",IRON_ENHANCE_STONE , CreativeModeTab.tabMaterials);
         register("enhance_stone/mithril",MITHRIL_ENHANCE_STONE , CreativeModeTab.tabMaterials);
@@ -241,5 +243,34 @@ public class Items extends Item{
                 'T', Item.ghastTear,
                 'B', Item.book,
                 'E', Item.enderPearl);
+
+
+        // NEW
+        register.registerShapelessRecipe(new ItemStack(Item.appleRed),
+                false,
+                Block.leaves,
+                Block.leaves,
+                Block.leaves,
+                Block.leaves,
+                Block.sapling,
+                Item.bone);
+        register.registerShapedRecipe(new ItemStack(FORTIFIED_ADAMANTIUM_INGOT),
+                true,
+                "yDz",
+                "EgE",
+                "ZDy",
+                'g', Item.ingotAdamantium,
+                'D', Item.spiderEye,
+                'E', Item.bone,
+                'Z', Item.ingotIron,
+                'z', Item.ingotAncientMetal,
+                'y', Item.rottenFlesh);
+        register.registerShapelessRecipe(new ItemStack(Item.carrot,3),
+                false,
+                Item.potato,
+                Item.wheat,
+                Item.appleRed,
+                Item.onion);
+
     }
 }

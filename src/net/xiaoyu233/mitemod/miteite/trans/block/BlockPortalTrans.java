@@ -60,7 +60,7 @@ public abstract class BlockPortalTrans extends Block {
 
             if (world.isAirOrPassableBlock(x, y, z, false)) {
                ++y;
-               if (world.isAirOrPassableBlock(x, y, z, false) && !world.isAirOrPassableBlock(x, y - 2, z, false) && !world.isLavaBlock(x, y - 2, z) && !world.isLavaBlock(x, y - 1, z)) {
+               if (world.isAirOrPassableBlock(x, y, z, false) && !world.isAirOrPassableBlock(x, y - 2, z, false) && !world.isLavaBlock(x, y - 2, z) && !world.isLavaBlock(x, y - 1, z) && !world.isLavaBlock(x, y - 50, z ) && !world.isAirOrPassableBlock(x, y - 50, z, false)) {
                   return new int[]{x, y-1, z};
                }
             }
@@ -114,13 +114,13 @@ public abstract class BlockPortalTrans extends Block {
          }
          return new int[]{x, 64, z};
       }else {
-         int minY = Configs.WorldGen.Underworld.UNDERWORLD_MANTLE_BLOCK_OFFSET.get() + 5;
+         int minY = 10 + 5;
          if (!world.isAirOrPassableBlock(x, 120, z, true)) {
             world.setBlockToAir(x, minY, z);
          }
 
          if (!world.isAirOrPassableBlock(x, 121, z, true)) {
-            world.setBlockToAir(x, Configs.WorldGen.Underworld.UNDERWORLD_MANTLE_BLOCK_OFFSET.get() + 6, z);
+            world.setBlockToAir(x, 10 + 6, z);
          }
          return new int[]{x, minY, z};
       }
@@ -143,7 +143,7 @@ public abstract class BlockPortalTrans extends Block {
 
    public boolean isTouchingBottomBedrock(World world, int x, int y, int z) {
       int frame_min_y = this.getFrameMinY(world, x, y, z);
-      if (frame_min_y <= 8 || (world.isUnderworld() && frame_min_y <= Configs.WorldGen.Underworld.UNDERWORLD_MANTLE_BLOCK_OFFSET.get() + 8)) {
+      if (frame_min_y <= 8 || (world.isUnderworld() && frame_min_y <= 10 + 8)) {
          int frame_min_x = this.getFrameMinX(world, x, y, z);
          int frame_max_x = this.getFrameMaxX(world, x, y, z);
          int frame_min_z = this.getFrameMinZ(world, x, y, z);

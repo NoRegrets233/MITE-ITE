@@ -96,10 +96,6 @@ public class ClientNetworkManagerTrans extends NetworkManagerTrans{
 
    }
 
-   @Override
-   public void handleUpdateDefense(BiPacketUpdateDefense packet) {
-      this.h.h.setDefenseCooldown(packet.getTime());
-   }
 
    @SoftOverride
    public void processForgingTableInfoPacket(SPacketForgingTableInfo packet) {

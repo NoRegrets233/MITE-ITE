@@ -33,8 +33,9 @@ public abstract class EntityTrans {
          }
       }
 
-      return (this.worldObj.isUnderworld() && this.boundingBox.minY <= Configs.WorldGen.Underworld.UNDERWORLD_MANTLE_BLOCK_OFFSET.get() + 1 || this.worldObj.isTheNether() && (this.boundingBox.minY <= 1.0D || this.boundingBox.maxY >= 123.0D)) && this.worldObj.doesBoundingBoxContainBlock(this.boundingBox.expand(0.001D, 0.001D, 0.001D), Block.mantleOrCore.blockID, -1) || this.worldObj.isBoundingBoxBurning(this.boundingBox.contract(0.001D, 0.001D, 0.001D), false);
+      return false;
    }
+
 
    @Shadow
    protected void readEntityFromNBT(NBTTagCompound var1) {

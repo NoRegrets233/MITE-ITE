@@ -131,10 +131,11 @@ public class EntityAnnihilationSkeleton extends EntitySkeleton {
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.setEntityAttribute(GenericAttributes.maxHealth,30);
-        this.setEntityAttribute(GenericAttributes.attackDamage,Integer.MAX_VALUE);
+        this.setEntityAttribute(GenericAttributes.attackDamage,70D);
         this.setEntityAttribute(GenericAttributes.movementSpeed, 0.2772D);
     }
 
+    /*
     @Override
     public EntityDamageResult attackEntityFrom(Damage damage) {
         if (damage.isIndirect() || !damage.isMelee() || damage.isExplosion() || damage.isArrowDamage() || !(damage.getResponsibleEntityP() instanceof EntityPlayer)){
@@ -149,6 +150,8 @@ public class EntityAnnihilationSkeleton extends EntitySkeleton {
         return super.attackEntityFrom(damage);
 
     }
+
+     */
 
     @Override
     protected void dropFewItems(boolean recently_hit_by_player, DamageSource damage_source) {

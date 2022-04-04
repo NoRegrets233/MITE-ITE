@@ -125,7 +125,6 @@ public class MITEITEEvents {
                     }
                 }
             }
-
             if (par2Str.startsWith("overlayMsg")) {
                 msg = par2Str.substring("overlayMsg".length());
                 player.sendPacket(new SPacketOverlayMessage(msg, 16777215, 100));
@@ -160,6 +159,11 @@ public class MITEITEEvents {
 
             event.setExecuteSuccess(true);
         }
+        if (par2Str.startsWith("verite")){
+            commandListener.sendChatToPlayer(ChatMessage.createFromTranslationKey("[Server] ").appendComponent(ChatMessage.createFromTranslationKey("版本为: " + Constant.MITE_ITE_VERSION + " 是NoRegrets覆写的啦" + "(网课时为了摸鱼写的)").setColor(EnumChatFormat.DARK_AQUA)));
+            commandListener.sendChatToPlayer(ChatMessage.createFromText("感谢: XiaoYu,Bean,even,heng").setColor(EnumChatFormat.RED));
+            event.setExecuteSuccess(true);
+        }
 
     }
 
@@ -171,7 +175,6 @@ public class MITEITEEvents {
         event.register(137, true, false, SPacketOverlayMessage.class);
         event.register(138, false, true, CPacketSyncItems.class);
         event.register(139, true, false, SPacketCraftingBoost.class);
-        event.register(140, true, true, BiPacketUpdateDefense.class);
     }
 
 //    @Subscribe
@@ -219,6 +222,5 @@ public class MITEITEEvents {
     @Subscribe
     public void onPlayerLoggedIn(PlayerLoggedInEvent event) {
         event.getPlayer().sendChatToPlayer(ChatMessage.createFromTranslationKey("[Server] ").appendComponent(ChatMessage.createFromTranslationKey("MITE-ITE模组已加载,当前版本:").setColor(EnumChatFormat.DARK_GREEN)).appendComponent(ChatMessage.createFromText(Constant.MITE_ITE_VERSION).setColor(EnumChatFormat.DARK_RED)));
-        event.getPlayer().sendChatToPlayer(ChatMessage.createFromTranslationKey("[MITE-ITE]:").appendComponent(ChatMessage.createFromTranslationKey("MITE-ITE 由").appendComponent(ChatMessage.createFromTranslationKey("XiaoYu233").setColor(EnumChatFormat.WHITE)).addText(" 制作,作者主页:").setColor(EnumChatFormat.DARK_RED).appendComponent(ChatMessage.createFromTranslationKey("https://afdian.net/@XiaoYu233").setColor(EnumChatFormat.DARK_GREEN))));
-    }
-}
+        event.getPlayer().sendChatToPlayer(ChatMessage.createFromTranslationKey("[MITE-ITE]:").appendComponent(ChatMessage.createFromTranslationKey("MITE-ITE 由").appendComponent(ChatMessage.createFromTranslationKey("XiaoYu233制作,NoRegrets覆写").setColor(EnumChatFormat.WHITE))));
+}}

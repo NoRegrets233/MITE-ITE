@@ -131,6 +131,19 @@ public class Blocks extends Block{
                 "I I",
                 "III",
                 'I', VIBRANIUM_INGOT);
+        register.registerShapedRecipe(new ItemStack(121,9), true,
+                "IXI",
+                "IXI",
+                "IXI",
+                'X', Item.eyeOfEnder,
+                'I', Block.obsidian);
+        register.registerShapedRecipe(new ItemStack(Blocks.endPortalFrame,3), true,
+                "YYY",
+                "IXI",
+                "III",
+                'X',VIBRANIUM_INGOT,
+                'I',Block.whiteStone,
+                'Y',Item.eyeOfEnder);
         registerForgingTableUpgradeRecipes(register,ForgingTableLevel.IRON,Item.ingotMithril);
         registerForgingTableUpgradeRecipes(register,ForgingTableLevel.MITHRIL,Item.ingotAdamantium);
         registerForgingTableUpgradeRecipes(register,ForgingTableLevel.ADAMANTIUM, VIBRANIUM_INGOT);

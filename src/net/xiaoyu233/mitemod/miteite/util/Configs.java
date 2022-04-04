@@ -22,6 +22,7 @@ public class Configs {
                     addEntry(ConfigEntry.of("player_defense_cooldown",GameMechanics.PLAYER_DEFENSE_COOLDOWN).withComment("玩家格挡冷却")).
                     addEntry(ConfigEntry.of("player_defence_max_time",GameMechanics.PLAYER_DEFENCE_MAX_TIME).withComment("玩家格挡最大时间")).
                     addEntry(ConfigEntry.of("player_disarm_player",GameMechanics.PLAYER_DISARM_PLAYER).withComment("玩家缴械玩家")).
+
                     addEntry(ConfigCategory.of("MobSpawning").
                             addEntry(ConfigEntry.of("blood_moon_max_hostile_fraction",GameMechanics.MobSpawning.BLOOD_MOON_MAX_HOSTILE_FRACTION).withComment("血月最大刷怪数量系数(小数)")).
                             addEntry(ConfigEntry.of("ghast_spawn_limit_day",GameMechanics.MobSpawning.GHAST_SPAWN_LIMIT_DAY).withComment("主世界生成恶魂所需天数(整数)")).
@@ -32,6 +33,7 @@ public class Configs {
                             addEntry(ConfigEntry.of("wandering_witch_spawn_limit_day_other",GameMechanics.MobSpawning.WANDERING_WITCH_SPAWN_LIMIT_DAY_OTHER).withComment("地狱及地底世界流浪女巫生成天数限制(整数)")).
                             addEntry(ConfigEntry.of("wandering_witch_spawn_chance_underworld",GameMechanics.MobSpawning.WANDERING_WITCH_SPAWN_CHANCE_UNDERWORLD).withComment("地底世界流浪女巫生成概率百分比(整数)")).
                             addEntry(ConfigEntry.of("mob_max_spawn_count_increase_per_day",GameMechanics.MobSpawning.MOB_MAX_SPAWN_COUNT_INCREASE_PER_DAY).withComment("每天刷怪数量上限增量(整数)"))).
+                           // addEntry(ConfigEntry.of("end_man_spawn_chance_end",GameMechanics.MobSpawning.END_MAN_SPAWN_CHANCE_END).withComment("末影人在末地生成频率")).
                     addEntry(ConfigCategory.of("Underworld").
                             addEntry(ConfigEntry.of("underworld_random_teleport",GameMechanics.Underworld.UNDERWORLD_RANDOM_TELEPORT).withComment("地底世界随机传送(开关)")).
                             addEntry(ConfigEntry.of("underworld_random_teleport_time_new",GameMechanics.Underworld.UNDERWORLD_RANDOM_TELEPORT_TIME).withComment("地底世界随机传送时间(整数)")).
@@ -122,7 +124,6 @@ public class Configs {
                             addEntry(ConfigEntry.of("lapis_frequency_underworld",WorldGen.Underworld.LAPIS_FREQUENCY_UNDERWORLD).withComment("地底世界青金石矿生成频率")).
                             addEntry(ConfigEntry.of("diamond_frequency_underworld",WorldGen.Underworld.DIAMOND_FREQUENCY_UNDERWORLD).withComment("地底世界钻石矿生成频率")).
                             addEntry(ConfigEntry.of("adamantium_frequency_underworld",WorldGen.Underworld.ADAMANTIUM_FREQUENCY_UNDERWORLD).withComment("地底世界艾德曼矿生成频率")).
-                            addEntry(ConfigEntry.of("underworld_mantle_block_offset",WorldGen.Underworld.UNDERWORLD_MANTLE_BLOCK_OFFSET).withComment("地底世界地幔位置向上偏移"))).
                     addEntry(ConfigCategory.of("Nether").
                             addEntry(ConfigEntry.of("nether_adamantium_max_count_per_chunk",WorldGen.Nether.NETHER_ADAMANTIUM_MAX_COUNT_PER_CHUNK).withComment("地狱艾德曼每个区块最大生成数量")).
                             addEntry(ConfigEntry.of("nether_adamantium_max_count_per_vein",WorldGen.Nether.NETHER_ADAMANTIUM_MAX_COUNT_PER_VEIN).withComment("地狱艾德曼每个矿脉最大矿物生成数量")))).
@@ -131,7 +132,7 @@ public class Configs {
                             addEntry(ConfigEntry.of("health_bar_x_offset",Client.Gui.HEALTH_BAR_X_OFFSET).withComment("营养条GUI横向偏移")).
                             addEntry(ConfigEntry.of("health_bar_y_offset",Client.Gui.HEALTH_BAR_Y_OFFSET).withComment("营养条GUI纵向偏移")))).
             addEntry(ConfigCategory.of("Misc").
-                    addEntry(ConfigEntry.of("log_players_interact_with_portal",Misc.LOG_PLAYERS_INTERACT_WITH_PORTAL).withComment("玩家通过传送门时发送警告(开关)")));
+                    addEntry(ConfigEntry.of("log_players_interact_with_portal",Misc.LOG_PLAYERS_INTERACT_WITH_PORTAL).withComment("玩家通过传送门时发送警告(开关)"))));
 
     public static void loadConfigs(){
         ROOT.readFromFile(CONFIG_FILE);
@@ -190,7 +191,7 @@ public class Configs {
         }
     }
 
-    public static class GameMechanics{
+    public static class GameMechanics {
         public static final FieldReference<Boolean> FIRST_DAY_LONGER_DAY_TIME = new FieldReference<>(true);
         public static final FieldReference<Integer> FISHING_XP_SCALE = new FieldReference<>(10);
         public static final FieldReference<Integer> IN_RAIN_DEBUFF_TIME = new FieldReference<>(3600);
@@ -213,6 +214,7 @@ public class Configs {
             public static final FieldReference<Integer> WANDERING_WITCH_SPAWN_LIMIT_DAY_OVERWORLD = new FieldReference<>(64);
             public static final FieldReference<Integer> WANDERING_WITCH_SPAWN_CHANCE_OVERWORLD = new FieldReference<>(33);
             public static final FieldReference<Integer> WANDERING_WITCH_SPAWN_CHANCE_UNDERWORLD = new FieldReference<>(50);
+          //  public static final FieldReference<Integer> END_MAN_SPAWN_CHANCE_END = new FieldReference<>(50);
         }
 
         public static class Nether{
@@ -229,6 +231,7 @@ public class Configs {
             public static final FieldReference<Boolean> UNDERWORLD_RANDOM_TELEPORT = new FieldReference<>(true);
             public static final FieldReference<Integer> UNDERWORLD_RANDOM_TELEPORT_TIME = new FieldReference<>(132000);
         }
+
     }
 
     public static class Item{
@@ -287,7 +290,6 @@ public class Configs {
             public static final FieldReference<Integer> LAPIS_FREQUENCY_UNDERWORLD = new FieldReference<>(5);
             public static final FieldReference<Integer> MITHRIL_FREQUENCY_UNDERWORLD = new FieldReference<>(10);
             public static final FieldReference<Integer> SILVER_FREQUENCY_UNDERWORLD = new FieldReference<>(10);
-            public static final FieldReference<Integer> UNDERWORLD_MANTLE_BLOCK_OFFSET = new FieldReference<>(75);
         }
 
         public static class Nether{

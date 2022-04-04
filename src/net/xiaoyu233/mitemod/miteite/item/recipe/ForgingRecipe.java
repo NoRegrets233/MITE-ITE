@@ -4,6 +4,8 @@ import com.google.common.collect.Lists;
 import net.minecraft.EnumQuality;
 import net.minecraft.ItemStack;
 import net.minecraft.Material;
+import net.xiaoyu233.mitemod.miteite.item.ItemEnhanceStone;
+import org.spongepowered.asm.mixin.Overwrite;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +21,7 @@ public class ForgingRecipe {
     private final int axeDurabilityCost;
     private final ForgingTableLevel forgingTableLevelReq;
     private final EnumQuality qualityReward;
+    private ItemEnhanceStone itemenhancestone;
     //Out of 100
     private final int chanceOfFailure;
 
