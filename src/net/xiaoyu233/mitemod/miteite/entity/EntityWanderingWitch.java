@@ -9,8 +9,8 @@ import java.util.UUID;
 public class EntityWanderingWitch extends EntityWitch {
     private static final AttributeModifier field_110185_bq = (new AttributeModifier(UUID.fromString("5CD17E52-A79A-43D3-A529-90FDE04B181E"), "Drinking speed penalty", -0.25D, 0)).setSaved(false);
 
-    private int aliveBatsCount;
-    private final int maxBatsCount = 8;
+ //   private int aliveBatsCount;
+ //   private final int maxBatsCount = 8;
     private boolean cursedPlayer;
     private int throwingPotionCooldown;
 
@@ -81,9 +81,12 @@ public class EntityWanderingWitch extends EntityWitch {
         return false;
     }
 
+    /*
     public void onAllyBatsDeath(){
         this.aliveBatsCount--;
     }
+
+     */
 
     @Override
     public void onLivingUpdate() {
@@ -145,9 +148,12 @@ public class EntityWanderingWitch extends EntityWitch {
         this.worldObj.spawnEntityInWorld(var3);
     }
 
+
     @Override
     public int summonWolvesP() {
+        /*
         EntityLiving summon_wolf_target = this.getSummon_wolf_target();
+
         if (summon_wolf_target != null){
             EntityLiving target = (EntityLiving)this.worldObj.getEntityByID(summon_wolf_target.entityId);
             if (target != null && !target.isDead) {
@@ -176,11 +182,15 @@ public class EntityWanderingWitch extends EntityWitch {
                     }
                 }
 
+
+
                 return batCounts;
             } else {
                 return 0;
             }
         }
+
+         */
         return 0;
     }
 
@@ -191,14 +201,14 @@ public class EntityWanderingWitch extends EntityWitch {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.setEntityAttribute(GenericAttributes.maxHealth,80d);
+        this.setEntityAttribute(GenericAttributes.maxHealth,100d);
         this.setEntityAttribute(GenericAttributes.movementSpeed,0.3d);
     }
 
     @Override
     public void readEntityFromNBT(NBTTagCompound par1NBTTagCompound) {
         super.readEntityFromNBT(par1NBTTagCompound);
-        par1NBTTagCompound.setInteger("AliveBatsCount",this.aliveBatsCount);
+       // par1NBTTagCompound.setInteger("AliveBatsCount",this.aliveBatsCount);
         par1NBTTagCompound.setBoolean("CursedPlayer",this.cursedPlayer);
     }
 
@@ -212,9 +222,12 @@ public class EntityWanderingWitch extends EntityWitch {
     @Override
     public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound) {
         super.writeEntityToNBT(par1NBTTagCompound);
+        /*
         if (par1NBTTagCompound.hasKey("AliveBatsCount")){
             this.aliveBatsCount = par1NBTTagCompound.getInteger("AliveBatsCount");
         }
+
+         */
         if (par1NBTTagCompound.hasKey("CursedPlayer")){
             this.cursedPlayer = par1NBTTagCompound.getBoolean("CursedPlayer");
         }
